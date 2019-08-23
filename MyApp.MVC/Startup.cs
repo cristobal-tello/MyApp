@@ -32,8 +32,8 @@ namespace MyApp.MVC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyAppDbConnection")));
-
+            //services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyAppDbConnection")));
+            services.AddDbContext<DataContext>(options => options.UseSqlite(Configuration.GetConnectionString("MyAppDbConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -57,7 +57,7 @@ namespace MyApp.MVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Countries}/{action=Index}/{id?}");
             });
         }
     }

@@ -20,7 +20,7 @@ namespace MyApp.MVC.Controllers
         // GET: Locations
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Location.Include(l => l.Country);
+            var dataContext = _context.Locations.Include(l => l.Country);
             return View(await dataContext.ToListAsync());
         }
 
@@ -32,7 +32,7 @@ namespace MyApp.MVC.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Location
+            var location = await _context.Locations
                 .Include(l => l.Country)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (location == null)
@@ -76,7 +76,7 @@ namespace MyApp.MVC.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Location.FindAsync(id);
+            var location = await _context.Locations.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
@@ -129,7 +129,7 @@ namespace MyApp.MVC.Controllers
                 return NotFound();
             }
 
-            var location = await _context.Location
+            var location = await _context.Locations
                 .Include(l => l.Country)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (location == null)
@@ -145,15 +145,15 @@ namespace MyApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var location = await _context.Location.FindAsync(id);
-            _context.Location.Remove(location);
+            var location = await _context.Locations.FindAsync(id);
+            _context.Locations.Remove(location);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LocationExists(int id)
         {
-            return _context.Location.Any(e => e.Id == id);
+            return _context.Locations.Any(e => e.Id == id);
         }
     }
 }

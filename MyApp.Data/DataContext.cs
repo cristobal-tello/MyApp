@@ -6,7 +6,7 @@ namespace MyApp.Data
     public class DataContext : DbContext
     {
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Location> Location { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -19,5 +19,10 @@ namespace MyApp.Data
             optionsBuilder
                 .UseSqlServer("Server = (localdb)\\mssqllocaldb; Database=MyApp; Trusted_Connection=True");
         }*/
+
+        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         {
+             optionsBuilder.UseSqlite("Data Source=myapp.db");
+         }*/
     }
 }
