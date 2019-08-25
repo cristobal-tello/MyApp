@@ -12,6 +12,7 @@ namespace MyApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string IsoCode { get; set; }
+        public string ShortIsoCode { get; set; }
         public bool IsRepublic { get; set; }
         public int Population { get; set; }
         public List<Location> Locations { get; set; }
