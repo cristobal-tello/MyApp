@@ -60,7 +60,7 @@ namespace MyApp.MVC
             using (var serviceScope = serviceScopeFactory.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<DataContext>();
-                dbContext.Database.Migrate();
+              //  dbContext.Database.Migrate();
                 dbContext.Database.EnsureCreated();
                
             }
