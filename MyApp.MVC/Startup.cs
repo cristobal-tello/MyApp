@@ -61,7 +61,7 @@ namespace MyApp.MVC
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<DataContext>();
                 dbContext.Database.Migrate();
-              //  dbContext.Database.EnsureCreated();
+                dbContext.Database.EnsureCreated();
                
             }
 
