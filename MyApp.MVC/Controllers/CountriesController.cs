@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Data;
 using MyApp.Models;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyApp.MVC.Controllers
 {
@@ -51,7 +54,7 @@ namespace MyApp.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,IsoCode,IsRepublic")] Country country)
+        public async Task<IActionResult> Create([Bind("Id,Name,IsoCode,IsRepublic,Population")] Country country)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +86,7 @@ namespace MyApp.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IsoCode,IsRepublic")] Country country)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IsoCode,IsRepublic,Population")] Country country)
         {
             if (id != country.Id)
             {
