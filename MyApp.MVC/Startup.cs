@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -65,7 +61,9 @@ namespace MyApp.MVC
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<DataContext>();
                 dbContext.Database.EnsureCreated();
+                dbContext.Database.Migrate();
             }
+
         }
     }
 }
