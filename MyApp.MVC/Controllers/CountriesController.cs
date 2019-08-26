@@ -54,7 +54,7 @@ namespace MyApp.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,IsoCode,ShortIsoCode,IsRepublic,Population")] Country country)
+        public async Task<IActionResult> Create([Bind("Id,Name,IsoCode,ShortIsoCode,IsRepublic,Population,Currency")] Country country)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MyApp.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IsoCode,ShortIsoCode,IsRepublic,Population")] Country country)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IsoCode,ShortIsoCode,IsRepublic,Population,Currency")] Country country)
         {
             if (id != country.Id)
             {

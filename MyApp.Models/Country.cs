@@ -16,6 +16,7 @@ namespace MyApp.Models
         public bool IsRepublic { get; set; }
         public int Population { get; set; }
         public List<Location> Locations { get; set; }
+        public string Currency { get; set; }
 
     }
 }
